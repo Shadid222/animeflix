@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnimeFlix - Anime World</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b12;color:#fff;font-family:Arial,sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 7%;background:#11111b}
+.logo{font-size:27px;font-weight:900;color:#ff3155}
+.logo span{color:white}
+nav a{color:#ddd;text-decoration:none;margin-left:20px}
+.hero{padding:65px 7%;background:radial-gradient(ellipse at 80% 30%,#682050,transparent 45%),linear-gradient(120deg,#20112c,#10101a 65%)}
+.tag{color:#ff6a83;font-weight:bold;letter-spacing:2px}
+h1{font-size:clamp(38px,6vw,68px);margin:15px 0}
+.hero p{color:#ccc;line-height:1.7;max-width:520px}
+.btn{display:inline-block;background:#ff3155;color:white;border:0;padding:13px 22px;border-radius:7px;font-weight:bold;cursor:pointer}
+section{padding:28px 7%}
+.tools{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}
+input,select{background:#191923;color:white;border:1px solid #363644;border-radius:7px;padding:13px;font-size:15px}
+input{flex:1;min-width:180px}
+select{min-width:140px}
+h2{font-size:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:18px}
+.card{background:#171721;border-radius:12px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-5px)}
+.poster{height:200px;display:flex;align-items:center;justify-content:center;font-size:65px}
+.p1{background:linear-gradient(140deg,#4e1b77,#ed4264)}
+.p2{background:linear-gradient(140deg,#102e52,#18a8a8)}
+.p3{background:linear-gradient(140deg,#721c25,#f7b733)}
+.p4{background:linear-gradient(140deg,#29265c,#a64ac9)}
+.p5{background:linear-gradient(140deg,#12372a,#b0d35b)}
+.p6{background:linear-gradient(140deg,#45221d,#ed8742)}
+.info{padding:13px}
+.info h3{margin:0 0 9px;font-size:16px}
+.info p{margin:0;color:#aaa;font-size:13px}
+.watch{margin-top:12px;width:100%;padding:9px;border:0;border-radius:5px;background:#292936;color:white;cursor:pointer}
+.watch:hover{background:#ff3155}
+.empty{color:#bbb;padding:20px 0}
+footer{text-align:center;color:#888;padding:30px;border-top:1px solid #242430;margin-top:30px}
+#message{display:none;background:#211b2c;padding:18px;border-radius:8px;margin-top:15px;color:#eee}
+@media(max-width:600px){header{padding:18px 5%}nav a{margin-left:8px;font-size:13px}.hero{padding:45px 5%}section{padding:22px 5%}.poster{height:170px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Anime<span>Flix</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#anime">Anime</a>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <div class="tag">YOUR ANIME UNIVERSE</div>
+  <h1>Enter the Anime<br>World.</h1>
+  <p>Discover adventures, powerful heroes, fantasy worlds and unforgettable stories. Your anime journey starts here.</p>
+  <a class="btn" href="#anime" style="text-decoration:none">Explore Anime →</a>
+</div>
+
+<section id="anime">
+  <h2>Discover Anime</h2>
+  <p style="color:#aaa">Find your next adventure.</p>
+  <div class="tools">
+    <input id="search" type="search" placeholder="Search anime..." aria-label="Search anime">
+    <select id="genre" aria-label="Filter by genre">
+      <option value="All">All Genres</option>
+      <option value="Action">Action</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Adventure">Adventure</option>
+      <option value="Comedy">Comedy</option>
+    </select>
+  </div>
+
+  <div class="grid" id="grid">
+    <article class="card" data-name="Shadow Legend" data-genre="Action">
+      <div class="poster p1">⚔️</div>
+      <div class="info"><h3>Shadow Legend</h3><p>Action · Demo</p><button class="watch">View Details</button></div>
+    </article>
+    <article class="card" data-name="Ocean Spirit" data-genre="Fantasy">
+      <div class="poster p2">🌊</div>
+      <div class="info"><h3>Ocean Spirit</h3><p>Fantasy · Demo</p><button class="watch">View Details</button></div>
+    </article>
+    <article class="card" data-name="Flame Warriors" data-genre="Action">
+      <div class="poster p3">🔥</div>
+      <div class="info"><h3>Flame Warriors</h3><p>Action · Demo</p><button class="watch">View Details</button></div>
+    </article>
+    <article class="card" data-name="Dream Kingdom" data-genre="Adventure">
+      <div class="poster p4">🌌</div>
+      <div class="info"><h3>Dream Kingdom</h3><p>Adventure · Demo</p><button class="watch">View Details</button></div>
+    </article>
+    <article class="card" data-name="Forest Heroes" data-genre="Fantasy">
+      <div class="poster p5">🌿</div>
+      <div class="info"><h3>Forest Heroes</h3><p>Fantasy · Demo</p><button class="watch">View Details</button></div>
+    </article>
+    <article class="card" data-name="Funny Ninja" data-genre="Comedy">
+      <div class="poster p6">🥷</div>
+      <div class="info"><h3>Funny Ninja</h3><p>Comedy · Demo</p><button class="watch">View Details</button></div>
+    </article>
+  </div>
+  <p id="empty" class="empty" style="display:none">No anime found. Try another search.</p>
+  <div id="message" role="status"></div>
+</section>
+
+<footer>
+  <div class="logo">Anime<span>Flix</span></div>
+  <p>A fan-made demo website. Anime titles and artwork are placeholders.</p>
+  <p>© 2026 AnimeFlix · Built with HTML, CSS and JavaScript</p>
+</footer>
+
+<script>
+const search = document.getElementById('search');
+const genre = document.getElementById('genre');
+const cards = [...document.querySelectorAll('.card')];
+const empty = document.getElementById('empty');
+const message = document.getElementById('message');
+
+function filterAnime() {
+  const query = search.value.trim().toLowerCase();
+  const selectedGenre = genre.value;
+  let count = 0;
+
+  cards.forEach(card => {
+    const matchesName = card.dataset.name.toLowerCase().includes(query);
+    const matchesGenre = selectedGenre === 'All' ||
+                         card.dataset.genre === selectedGenre;
+    const show = matchesName && matchesGenre;
+    card.style.display = show ? '' : 'none';
+    if (show) count++;
+  });
+
+  empty.style.display = count ? 'none' : 'block';
+  message.style.display = 'none';
+}
+
+search.addEventListener('input', filterAnime);
+genre.addEventListener('change', filterAnime);
+
+document.querySelectorAll('.watch').forEach(button => {
+  button.addEventListener('click', () => {
+    const title = button.closest('.card').dataset.name;
+    message.textContent = title +
+      ' is a demo entry. A licensed video or trailer can be added later.';
+    message.style.display = 'block';
+    message.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+});
+</script>
+</body>
+</html>
